@@ -7,9 +7,7 @@
 [apply]
 	whitespace = nowarn
 [alias]
-	some = !git-some.sh
-	flow = !$ZPLUG_HOME/repos/nvie/gitflow/git-flow
-	standup = !git-standup
+	some = !~/.dotfiles/git/git-some/git-some.sh
 	ui = !/c/Tools/QGit/qgit.exe --all &
 	clobber = !~/.dotfiles/git/bin/git-cleanup
 
@@ -69,7 +67,13 @@
 	enabled = true
 	autoupdate = true
 [push]
-	default = simple
+	default = matching
+[sendemail]
+	from = Alexander Groß <agross@therightstuff.de>
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = agross@therightstuff.de
+	smtpserverport = 587
 [status]
 	#submodulesummary = true
 [rebase]
