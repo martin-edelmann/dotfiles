@@ -6,9 +6,6 @@ gitalias nogit='command' nogit
 # git daemon.
 gitalias serve='function _() { local base_path="$(readlink --canonicalize-existing "${1:-$PWD}")"; echo Serving $fg[green]$base_path$reset_color; git daemon --verbose --export-all --base-path="$base_path" & }; _' nogit
 
-# git status.
-gitalias s='status'
-
 # Executable bit.
 gitalias   set-x='update-index --chmod=+x'
 gitalias unset-x='update-index --chmod=-x'
