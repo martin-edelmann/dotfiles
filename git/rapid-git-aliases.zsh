@@ -1,5 +1,5 @@
 # Aliases for file operations.
-alias qs='rapid status'
+alias s='rapid status'
 alias qa='nocorrect rapid stage'
 alias qn='nocorrect rapid track'
 alias qap='nocorrect rapid stage --patch'
@@ -8,6 +8,15 @@ alias qdc='nocorrect rapid diff --staged'
 alias qc='nocorrect rapid drop'
 alias qu='nocorrect rapid unstage'
 alias qrm='nocorrect rapid remove'
+
+alias qa='rapid stage'
+alias qn='rapid track'
+alias qap='rapid stage --patch'
+alias qd='rapid diff'
+alias qdc='rapid diff --staged'
+alias qc='rapid drop'
+alias qu='rapid unstage'
+alias qrm='rapid remove'
 
 # Aliases for branch operations.
 alias qb='nocorrect rapid branch'
