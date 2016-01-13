@@ -24,7 +24,7 @@ gitalias gitignored='ls-files --others --directory --ignored --exclude-standard'
 gitalias commit='commit --verbose'
 gitalias  amend='commit --amend --no-edit'
 gitalias     ci='commit --verbose'
-gitalias    cim='commit --verbose --message'
+gitalias      c='commit --verbose --message'
 gitalias   cima='commit --verbose --all --message'
 
 gitalias reword='commit --amend --message'
