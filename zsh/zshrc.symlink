@@ -14,6 +14,42 @@ function() {
   # Use extended_glob option for zplug subshells. We need to change it for zplug's use tags containing extended globs.
   zstyle ":zplug:config:setopt" only_subshell extended_glob
 
+  # Save extended_glob option for restore. We need to change it for zplug's of tags.
+  local eg=$options[extended_glob]
+  setopt extended_glob
+
+  local nice=
+  # Load paths first.
+  nice=-20; zplug "$DOTFILES", from:local, nice:$nice, of:'**/path.zsh'
+
+  # Load everything but the zprofile, path, completion and postinit files second.
+  nice=-19; zplug "$DOTFILES", from:local, nice:$nice, of:'**/(^(zprofile|path|completion|postinit)).zsh'
+
+  # Set theme.
+  nice=-18; zplug "$DOTFILES/zsh/themes", from:local, nice:$nice, of:'agross.zsh-theme'
+
+  # Load postinit last.
+  nice=9;   zplug "$DOTFILES", from:local, nice:$nice, of:'**/postinit.zsh'
+
+  # Load completions after compinit was run.
+  nice=10;  zplug "$DOTFILES", from:local, nice:$nice, of:'**/completion.zsh'
+
+  zplug 'b4b4r07/zplug'
+  zplug 'plugins/ssh-agent', from:oh-my-zsh, ignore:oh-my-zsh.sh
+  zplug 'plugins/sudo', from:oh-my-zsh, ignore:oh-my-zsh.sh, if:"(($+commands[sudo]))"
+  zplug 'plugins/systemd', from:oh-my-zsh, ignore:oh-my-zsh.sh, if:"(($+commands[systemctl]))"
+  zplug 'Tarrasch/zsh-bd'
+  zplug 'bobthecow/git-flow-completion'
+  zplug 'rhysd/zsh-bundle-exec', if:"(($+commands[bundle])) && [[ "$(platform)" != "windows" ]]"
+
+  zplug 'holman/dotfiles', as:command, of:'bin/e'
+  zplug 'transcode-open/apt-cyg', as:command, if:"[[ "$(platform)" == "windows" ]]", of:'apt-cyg'
+  zplug 'agross/rapid-git', if:"(($+commands[git]))", of:'rapid-git.sh'
+  zplug 'co-it/git-prefix', if:"(($+commands[git]))", of:'source/git-prefix.sh'
+
+  zplug 'zsh-users/zsh-syntax-highlighting', nice:10, if:"[[ "$(platform)" != "windows" ]]"
+  zplug 'knu/z', of:'z.sh', nice:10
+
   ZPLUG_LOADFILE="$DOTFILES/zsh/zplugs"
   zplug-install
 
