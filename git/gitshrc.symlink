@@ -32,7 +32,6 @@ gitalias   undo='reset HEAD~1'
 gitalias     rh='reset --hard'
 
 # git branch and remote.
-gitalias    co='checkout'
 gitalias     b='branch'
 gitalias   brs='branch --all --verbose'
 gitalias    rv='remote --verbose'
