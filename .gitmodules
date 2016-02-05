@@ -6,3 +6,6 @@
 	path = git/git-flow
 	url = https://github.com/nvie/gitflow.git
 	branch = master
+[submodule "git/git-prefix"]
+	path = git/git-prefix
+	url = git@github.com:co-IT/git-prefix.git
