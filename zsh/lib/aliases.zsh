@@ -1,5 +1,5 @@
 os="$(uname -s)"
-
+echo $os
 alias -g L=' | less'
 alias -g M=' | less'
 alias -g H=' | head'
@@ -33,8 +33,11 @@ case $os in
         alias ls='ls -laG'
         alias grep='grep --color'
         ;;
-    "Linux"  )
+    "CYGWIN_NT-10.0"  )
         alias ls='ls --color=auto -l --all --human-readable --group-directories'
         alias grep='grep --color=auto --ignore-case --binary-files=without-match --line-number'
+        alias atom="atom.cmd"
+        alias guard="guard.bat"
+        alias nanoc="nanoc.bat"
         ;;
 esac
