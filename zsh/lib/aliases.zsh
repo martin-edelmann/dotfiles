@@ -1,3 +1,5 @@
+os="$(uname -s)"
+
 alias -g L=' | less'
 alias -g M=' | less'
 alias -g H=' | head'
@@ -6,9 +8,6 @@ alias -g G=' | grep'
 
 alias cd..='cd ..'
 alias cd/='cd /'
-# cd into the directory of the most recent parameter.
-# mkdir foo && touch foo/bar
-# cdd # will cd into foo
 alias cdd='cd $(dirname $_)'
 alias up=bd
 
@@ -24,8 +23,18 @@ alias 9='cd +9'
 alias dirs='dirs -v'
 
 alias md='mkdir --parents'
-alias grep='grep --color=auto --ignore-case --binary-files=without-match --line-number --initial-tab'
-alias ls='ls --color=auto -l --all --human-readable --group-directories'
 
 # Also done by Ctrl + L.
 alias cls='echo -ne "\033c"'
+
+# Platform dependend aliases
+case $os in
+    "Darwin" )
+        alias ls='ls -laG'
+        alias grep='grep --color'
+        ;;
+    "Linux"  )
+        alias ls='ls --color=auto -l --all --human-readable --group-directories'
+        alias grep='grep --color=auto --ignore-case --binary-files=without-match --line-number'
+        ;;
+esac
