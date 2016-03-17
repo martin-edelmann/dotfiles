@@ -1,6 +1,6 @@
 [user]
-	email = gw@co-it.eu
-	name = Gregor Woiwode
+	email = me@co-it.eu
+	name = Martin Edelmann
 [core]
 	whitespace = trailing-space, space-before-tab, -indent-with-non-tab, cr-at-eol
 	quotepath = false
