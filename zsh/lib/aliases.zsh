@@ -1,5 +1,5 @@
 os="$(uname -s)"
-echo $os
+
 alias -g L=' | less'
 alias -g M=' | less'
 alias -g H=' | head'
