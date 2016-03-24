@@ -6,10 +6,8 @@
 script_path=${0%/*}
 source "$script_path/diff-and-merge-support"
 
-os="$(uname -s)"
-
-[[ $os == 'Darwin' ]] && mergetool='/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh'
-[[ $os == 'CYGWIN_NT-10.0' ]] && mergetool='/c/Tools/DiffMerge/diffmerge.exe'
+[[ "$(uname -s)" == 'Darwin' ]] && mergetool='/Applications/DiffMerge.app/Contents/Resources/diffmerge.sh'
+[[ "$(uname -o)" == 'Cygwin' ]] && mergetool='/c/Tools/DiffMerge/diffmerge.exe'
 
 get_merge_args "$1" "$2" "$3" "$4"
 

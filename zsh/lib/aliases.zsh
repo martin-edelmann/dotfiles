@@ -1,4 +1,5 @@
-os="$(uname -s)"
+[[ "$(uname -s)" == 'Darwin' ]] && os='Darwin'
+[[ "$(uname -o)" == 'Cygwin' ]] && os='Cygwin'
 
 alias -g L=' | less'
 alias -g M=' | less'
@@ -33,7 +34,7 @@ case $os in
         alias ls='ls -laG'
         alias grep='grep --color'
         ;;
-    "CYGWIN_NT-10.0"  )
+    "Cygwin"  )
         alias ls='ls --color=auto -l --all --human-readable --group-directories'
         alias grep='grep --color=auto --ignore-case --binary-files=without-match --line-number'
         alias atom="atom.cmd"
