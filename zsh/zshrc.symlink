@@ -20,19 +20,19 @@ function() {
 
   local nice=
   # Load paths first.
-  nice=-20; zplug "$DOTFILES", from:local, nice:$nice, of:'**/path.zsh'
+  nice=-20; zplug "$DOTFILES", from:local, nice:$nice, use:'**/path.zsh'
 
   # Load everything but the zprofile, path, completion and postinit files second.
-  nice=-19; zplug "$DOTFILES", from:local, nice:$nice, of:'**/(^(zprofile|path|completion|postinit)).zsh'
+  nice=-19; zplug "$DOTFILES", from:local, nice:$nice, use:'**/(^(zprofile|path|completion|postinit)).zsh'
 
   # Set theme.
-  nice=-18; zplug "$DOTFILES/zsh/themes", from:local, nice:$nice, of:'agross.zsh-theme'
+  nice=-18; zplug "$DOTFILES/zsh/themes", from:local, nice:$nice, use:'agross.zsh-theme'
 
   # Load postinit last.
-  nice=9;   zplug "$DOTFILES", from:local, nice:$nice, of:'**/postinit.zsh'
+  nice=9;   zplug "$DOTFILES", from:local, nice:$nice, use:'**/postinit.zsh'
 
   # Load completions after compinit was run.
-  nice=10;  zplug "$DOTFILES", from:local, nice:$nice, of:'**/completion.zsh'
+  nice=10;  zplug "$DOTFILES", from:local, nice:$nice, use:'**/completion.zsh'
 
   zplug 'b4b4r07/zplug'
   zplug 'plugins/ssh-agent', from:oh-my-zsh, ignore:oh-my-zsh.sh
@@ -42,13 +42,13 @@ function() {
   zplug 'bobthecow/git-flow-completion'
   zplug 'rhysd/zsh-bundle-exec', if:"(($+commands[bundle])) && [[ "$(platform)" != "windows" ]]"
 
-  zplug 'holman/dotfiles', as:command, of:'bin/e'
-  zplug 'transcode-open/apt-cyg', as:command, if:"[[ "$(platform)" == "windows" ]]", of:'apt-cyg'
-  zplug 'rapid-git/rapid-git', if:"(($+commands[git]))", of:'rapid-git.sh'
-  zplug 'co-it/git-prefix', if:"(($+commands[git]))", of:'source/git-prefix.sh'
+  zplug 'holman/dotfiles', as:command, use:'bin/e'
+  zplug 'transcode-open/apt-cyg', as:command, if:"[[ "$(platform)" == "windows" ]]", use:'apt-cyg'
+  zplug 'rapid-git/rapid-git', if:"(($+commands[git]))", use:'rapid-git.sh'
+  zplug 'co-it/git-prefix', if:"(($+commands[git]))", use:'source/git-prefix.sh'
 
   zplug 'zsh-users/zsh-syntax-highlighting', nice:10, if:"[[ "$(platform)" != "windows" ]]"
-  zplug 'knu/z', of:'z.sh', nice:10
+  zplug 'knu/z', use:'z.sh', nice:10
 
   ZPLUG_LOADFILE="$DOTFILES/zsh/zplugs"
   zplug-install
