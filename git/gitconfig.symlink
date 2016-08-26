@@ -7,6 +7,28 @@
 [apply]
 	whitespace = nowarn
 [alias]
+	review = log -1 --patch
+	unstage = reset head
+	aa = add --all
+	au = add --update
+	s = status
+	p = pull
+	pac = !sh -c 'git push --set-upstream origin \"${1-HEAD}\"' -
+	ll = log -20 --pretty=format:\"%h | %an | %ar | %s\"
+	l = log --oneline -35
+	k = !gitk --all & --all &
+	aua = !git add --update && git commit --amend --no-edit
+	aaa = !git add --all && git commit --amend --no-edit
+	amend = commit --amend --reuse-message=HEAD
+	aac = !sh -c 'git add --all && git commit -m \"$1\"' -
+	medev = !sh -c 'git fetch && git merge origin/develop' -
+	aucp = !sh -c 'git add --update && git commit -m \"$1\" && git push' -
+    aacp = !sh -c 'git add --all && git commit -m \"$1\" && git push' -
+	mebranch = !sh -c 'git checkout develop && git pull --ff-only && git checkout \"$1\" && git pull --ff-only && git merge --ff-only develop' -
+	co = checkout
+	ff = merge --no-ff
+	ga = log --graph --oneline --decorate --all
+	gb = log --graph --all --decorate --branches -30
 	some = !~/.dotfiles/git/git-some/git-some.sh
 	ui = !/c/Tools/QGit/qgit.exe --all &
 	clobber = !~/.dotfiles/git/bin/git-cleanup
